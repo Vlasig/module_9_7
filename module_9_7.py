@@ -2,16 +2,16 @@ def is_prime(func):
     def wrapper(*numbers):
         number = func(*numbers)
         prime = True
-        if number < 2:
-            for i in range(2, int(number ** 0.5) + 1):
-                if number % i == 0:
-                    prime = False
-                    print("Составное")
-            return number
-        else:
-            prime = True
+        for i in range(2, int(number ** 0.5) + 1):
+            if number % i == 0:
+                prime = False
+        if prime:
             print("Простое")
+        else:
+            print("Составное")
+
         return number
+
     return wrapper
 
 
